@@ -1,0 +1,35 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:lingering_potion",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.25
+      },
+      "minecraft:projectile": {
+       "onHit": {
+        "douse_fire": { },
+        "spawn_aoe_cloud": {
+          "radius": 3.0,
+          "radius_on_use": -0.5,
+          "duration": 30,
+          "reapplication_delay": 40
+        },
+        "remove_on_hit": { }
+       },
+        "power": 0.5,
+        "gravity": 0.05,
+        "angleoffset": -20.0,
+        "hitSound": "glass"
+      },
+	    "minecraft:physics": {
+      }
+    }
+  }
+}

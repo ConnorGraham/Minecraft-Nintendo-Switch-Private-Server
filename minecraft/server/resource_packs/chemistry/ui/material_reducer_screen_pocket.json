@@ -1,0 +1,168 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "matreduce_pocket",
+
+  "title_label@edu_common.dark_label": {
+    "layer": 2,
+    "text": "materialreducer.title",
+    "size": [ "100%", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text_alignment": "center",
+    "offset": [ 0, 8 ]
+  },
+
+  "hotbar_slot@chem_common_pocket.pocket_ui_container_item": {
+    "$item_collection_name": "hotbar_items",
+    "$button_ref": "matreduce.one_touch_button"
+  },
+
+  "inventory_slot@chem_common_pocket.pocket_ui_container_item": {
+    "$item_collection_name": "inventory_items",
+    "$button_ref": "matreduce.one_touch_button"
+  },
+
+  "input_slot@common.empty_panel": {
+    "size": [ 18, 18 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": [ -0.5, -49 ], // I weep for -0.5, but it's needed to line up with the connectors element.
+    "controls": [
+      {
+        "slot@chem_common_pocket.pocket_ui_container_item": {
+          "layer": 2,
+          "$item_collection_name": "matreduce_input",
+          "$button_ref": "matreduce.one_touch_button",
+          "$item_renderer_size": [ 20, 20 ],
+          "bindings": [
+            {
+              "binding_name": "#input_enabled",
+              "binding_name_override": "#enabled"
+            }
+          ]
+        }
+      },
+      {
+        "disabled_overlay": {
+          "type": "image",
+          "layer": 4,
+          "texture": "textures/ui/recipe_book_red_button",
+          "bindings": [
+            {
+              "binding_name": "(not #input_enabled)",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "connectors": {
+    "type": "image",
+    "texture": "textures/ui/material_reducer_connectors_pocket",
+    "size": [ 119, 79 ],
+    "offset": [ 0, -10.5 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 10
+  },
+
+  "output_item": {
+    "type": "panel",
+    "grid_position": "$grid_position",
+    "size": [ 18, 18 ],
+    "controls": [
+      {
+        "slot@chem_common_pocket.pocket_ui_container_item": {
+          "$offset|default": [ 0, 0 ],
+          "offset": "$offset",
+          "$item_collection_name": "matreduce_output",
+          "$item_renderer_size": [ 20, 20 ]
+        }
+      }
+    ]
+  },
+
+  "output_slots": {
+    "type": "grid",
+    "layer": 2,
+    "size": [ 130, 55 ],
+    "offset": [ 4, 17.5 ],
+    "grid_dimensions": [ 5, 2 ],
+    "collection_name": "matreduce_output",
+    "controls": [
+      {
+        "a@matreduce_pocket.output_item": {
+          "$grid_position": [ 0, 0 ]
+        }
+      },
+      {
+        "b@matreduce_pocket.output_item": {
+          "$grid_position": [ 1, 0 ]
+        }
+      },
+      {
+        "c@matreduce_pocket.output_item": {
+          "$grid_position": [ 2, 0 ]
+        }
+      },
+      {
+        "d@matreduce_pocket.output_item": {
+          "$grid_position": [ 3, 0 ]
+        }
+      },
+      {
+        "e@matreduce_pocket.output_item": {
+          "$grid_position": [ 4, 0 ]
+        }
+      },
+      {
+        "f@matreduce_pocket.output_item": {
+          "$grid_position": [ 0, 1 ],
+          "$offset": [ 12.5, 0 ]
+        }
+      },
+      {
+        "g@matreduce_pocket.output_item": {
+          "$grid_position": [ 1, 1 ],
+          "$offset": [ 12.5, 0 ]
+        }
+      },
+      {
+        "h@matreduce_pocket.output_item": {
+          "$grid_position": [ 2, 1 ],
+          "$offset": [ 12.5, 0 ]
+        }
+      },
+      {
+        "i@matreduce_pocket.output_item": {
+          "$grid_position": [ 3, 1 ],
+          "$offset": [ 12.5, 0 ]
+        }
+      }
+    ]
+  },
+
+  "right_panel@common.empty_panel": {
+    "size": [ "49.5%", "100%" ],
+    "layer": 2,
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      { "title_label@matreduce_pocket.title_label": {} },
+      { "dialog_background_opaque@common.dialog_background_opaque": {} },
+      { "input@matreduce_pocket.input_slot": {} },
+      { "output@matreduce_pocket.output_slots": {} },
+      { "connectors@matreduce_pocket.connectors": {} }
+    ]
+  },
+
+  "content@chem_common_pocket.screen_contents": {
+    "$right_panel": "right_panel@matreduce_pocket.right_panel"
+  }
+}

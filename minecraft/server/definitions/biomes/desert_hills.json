@@ -1,0 +1,26 @@
+{
+  "desert_hills": {
+    "format_version": "1.12.0",
+
+    "minecraft:climate": {
+      "downfall": 0.0,
+      "snow_accumulation": [ 0.0, 0.125 ],
+      "temperature": 2.0
+    },
+    "minecraft:overworld_height": {
+      "noise_type": "mountains"
+    },
+    "minecraft:overworld_surface": {
+      "floor_depth": 7,
+      "floor_material": "minecraft:gravel",
+      "foundation_material": "minecraft:stone",
+      "mid_material": "minecraft:sand",
+      "top_material": "minecraft:sand"
+    },
+
+    "desert": {},
+    "hills": {},
+    "monster": {},
+    "overworld": {}
+  }
+}

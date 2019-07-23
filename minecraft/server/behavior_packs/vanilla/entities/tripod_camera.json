@@ -1,0 +1,30 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:tripod_camera",
+      "is_spawnable": false,
+      "is_summonable": false,
+      "is_experimental": false
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": [ "tripodcamera", "inanimate" ]
+      },
+      "minecraft:health": {
+        "value": 4,
+        "max": 4
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/empty.json"
+      },
+      "minecraft:collision_box": {
+        "width": 0.75,
+        "height": 1.8
+      },
+	    "minecraft:physics": {
+      }
+    }
+  }
+}

@@ -1,0 +1,422 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "elemconstruct",
+
+  ///// Shared with Pocket Screen /////
+
+  "particle_count@common.text_edit_box": {
+    "size": [ 24, 20 ],
+    "$text_edit_box_content_binding_name": "$particle_count_bind_name",
+    "$text_alignment": "center",
+    "max_length": 3,
+    "$wrap": false,
+    "text_type": "NumberChars",
+
+    "$focus_override_up": "FOCUS_OVERRIDE_STOP"
+  },
+
+  "chemistry_slider_button_hover_layout@common.slider_button_hover_layout": {
+    "texture": "textures/ui/chemistry_slider_button_default"
+  },
+
+  "slider_background": {
+    "type": "image",
+    "texture": "textures/ui/slider_background"
+  },
+
+  "slider_background_hover@elemconstruct.slider_background": {
+    "texture": "textures/ui/chemistry_slider_background_hover"
+  },
+
+  "bohr_model@common.cell_image": {
+    "size": [ 110, "100%" ],
+    "controls": [
+      {
+        "model": {
+          "type": "custom",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "layer": 2,
+          "offset": [ 2, 2 ],
+          "size": [ "100% - 4px", "100% - 4px" ],
+          "renderer": "bohr_model_renderer",
+          // Bind used to fill the property bag
+          "bindings": [
+            {
+              "binding_type": "global",
+              // Binding itself doesn't do anything, but the callback is used to fill the property bag
+              "binding_name": "#bohr_model_update"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  ///// Differs from Pocket Screen /////
+
+  "title_label@edu_common.dark_label": {
+    "layer": 2,
+    "text": "elementconstructor.title",
+    "size": [ "100%", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text_alignment": "center",
+    "offset": [ 0, 4 ]
+  },
+
+  "particle_label": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ 18, 15 ],
+    "controls": [
+      {
+        "pad@common.empty_panel": {
+          "size": [ 2, 2 ]
+        }
+      },
+      {
+        "label@edu_common.dark_label": {
+          "text": "$particle_label"
+        }
+      },
+      {
+        "wrap@common.empty_panel": {
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "icon": {
+                "type": "image",
+                "texture": "$particle_icon",
+                "size": [ 8, 8 ],
+                "offset": [ 0, 1 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // Use our own white progress since we're going to tint it with a color
+  "slider_progress": {
+    "type": "image",
+    "texture": "textures/ui/white_slider_progress",
+    "color": "$slider_progress_color"
+  },
+
+  "slider_progress_hover@elemconstruct.slider_progress": {},
+
+  "slider_bar_default@common.slider_bar_default": {
+    // Extend by knob size so knob is always contained in track even at value extremes
+    "size": [ "100%", "100% + 10px" ],
+    "$background_control": "elemconstruct.slider_background",
+    "$progress_control": "elemconstruct.slider_progress"
+  },
+
+  "slider_bar_hover@common.slider_bar_hover": {
+    // Extend by knob size so knob is always contained in track even at value extremes
+    "size": [ "100%", "100% + 10px" ],
+    "$background_control": "elemconstruct.slider_background_hover",
+    "$progress_control": "elemconstruct.slider_progress_hover"
+  },
+
+  "particle_slider@common.empty_panel": {
+    "size": [ 24, "100%c" ],
+    "controls": [
+      {
+        "slider@common.slider": {
+          "size": [ 12, 128 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$slider_direction": "vertical",
+          "slider_inverted": true,
+          "$progress_clip_direction": "down",
+          "$slider_tts_header": "$particle_label",
+          "$slider_tts_text_value": "$particle_count_bind_name",
+
+          // Override base controls so I can make the track contain the knob, even at min and max values
+          "controls": [
+            {
+              "slider_box@common.slider_box": {
+                "$slider_box_layout": "$slider_box_layout",
+                "$slider_box_size": [ 16, 10 ],
+                "$slider_track_button": "$slider_name",
+                "$slider_box_hover_layout": "elemconstruct.chemistry_slider_button_hover_layout"
+              }
+            },
+            {
+              "slider_bar_default@elemconstruct.slider_bar_default": {}
+            },
+            {
+              "slider_bar_hover@elemconstruct.slider_bar_hover": {
+                "visible": false
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "particle_slider_plus@common.empty_panel": {
+    "size": [ 24, "100%c + 5px" ],
+    "controls": [
+      {
+        "button@common_buttons.light_text_button": {
+          "size": [ 12, 12 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$pressed_button_name": "$plus_button_name",
+          "$button_text": "+",
+
+          "$focus_id_binding_type": "none",
+          "$focus_id": "$plus_focus_id",
+
+          "$focus_override_right_binding_type": "none",
+          "$focus_override_right": "$plus_focus_override_right",
+
+          "$focus_override_left_binding_type": "none",
+          "$focus_override_left": "$plus_focus_override_left"
+        }
+      }
+    ]
+  },
+
+  "particle_slider_minus@common.empty_panel": {
+    "size": [ 24, "100%c + 5px" ],
+    "controls": [
+      {
+        "button@common_buttons.light_text_button": {
+          "size": [ 12, 12 ],
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle",
+          "$pressed_button_name": "$minus_button_name",
+          "$button_text": "-",
+
+          "$focus_override_down_binding_type": "none",
+          "$focus_override_down": "FOCUS_OVERRIDE_STOP"
+        }
+      }
+    ]
+  },
+
+  "particle": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ 24, "100%c" ],
+    "controls": [
+      { "label@elemconstruct.particle_label": {} },
+      { "count@elemconstruct.particle_count": {} },
+      { "p0@common.empty_panel": { "size": [ 2, 2 ] } },
+      { "plus@elemconstruct.particle_slider_plus": {} },
+      { "slider@elemconstruct.particle_slider": {} },
+      { "minus@elemconstruct.particle_slider_minus": {} }
+    ]
+  },
+
+  "particle_panel": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    // Size and offset so it's on the bottom left within the frame, under the title
+    "size": [ "100%c", "100% - 20px" ],
+    "offset": [ 4, 16 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "layer": 2,
+    "controls": [
+      {
+        "protons@elemconstruct.particle": {
+          "$particle_label": "p",
+          "$particle_icon": "textures/ui/proton",
+          "$particle_count_bind_name": "#proton_label_count",
+          "$plus_button_name": "button.proton_plus",
+          "$minus_button_name": "button.proton_minus",
+          "$slider_value_binding_name": "#proton_slider_count",
+          "$slider_name": "proton_slider",
+          "$slider_progress_color": "$proton_color",
+          "$text_box_name": "proton_text_edit",
+
+          "$plus_focus_id": "protons_plus",
+
+          "$plus_focus_override_right": "electrons_plus",
+          "$plus_focus_override_left": "FOCUS_OVERRIDE_STOP",
+
+          "$focus_override_left": "FOCUS_OVERRIDE_STOP"
+        }
+      },
+      { "p0@common.empty_panel": { "size": [ 2, 2 ] } },
+      {
+        "electrons@elemconstruct.particle": {
+          "$particle_label": "e",
+          "$particle_icon": "textures/ui/electron",
+          "$particle_count_bind_name": "#electron_label_count",
+          "$plus_button_name": "button.electron_plus",
+          "$minus_button_name": "button.electron_minus",
+          "$slider_value_binding_name": "#electron_slider_count",
+          "$slider_name": "electron_slider",
+          "$slider_progress_color": "$electron_color",
+          "$text_box_name": "electron_text_edit",
+
+          "$plus_focus_id": "electrons_plus",
+
+          "$plus_focus_override_right": "neutrons_plus",
+          "$plus_focus_override_left": "protons_plus"
+        }
+      },
+      { "p1@common.empty_panel": { "size": [ 2, 2 ] } },
+      {
+        "neutrons@elemconstruct.particle": {
+          "$particle_label": "n",
+          "$particle_icon": "textures/ui/neutron",
+          "$particle_count_bind_name": "#neutron_label_count",
+          "$plus_button_name": "button.neutron_plus",
+          "$minus_button_name": "button.neutron_minus",
+          "$slider_value_binding_name": "#neutron_slider_count",
+          "$slider_name": "neutron_slider",
+          "$slider_progress_color": "$neutron_color",
+          "$text_box_name": "neutron_text_edit",
+
+          "$plus_focus_id": "neutrons_plus",
+
+          "$plus_focus_override_right": "",
+          "$plus_focus_override_left": "electrons_plus"
+        }
+      }
+    ]
+  },
+
+  "output_panel@common.empty_panel": {
+    "size": [ 52, "100%" ],
+    "controls": [
+      {
+        "element_icon": {
+          "type": "image",
+          "size": [ 50, 50 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "texture": "textures/ui/microscope"
+        }
+      },
+      {
+        "arrow_to_output": {
+          "type": "image",
+          "size": [ 17, 4 ],
+          "offset": [ -1, 25 ],
+          "layer": 4,
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "texture": "textures/ui/dialog_indent_horiz"
+        }
+      },
+      {
+        "output_slot@common.empty_panel": {
+          "$slot_size": [ 24, 24 ],
+          "size": "$slot_size",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "offset": [ 1, 25 ],
+          "controls": [
+            {
+              "slot@common.container_item": {
+                "$item_collection_name": "elemconstruct_output",
+                "size": "$slot_size",
+                "$cell_image_size": "$slot_size",
+                "layer": 2
+              }
+            },
+            {
+              "placeholder_icon": {
+                "type": "image",
+                "size": [ 16, 16 ],
+                "layer": 4,
+                "texture": "textures/ui/placeholder_element"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // Top right portion of the screen with Bohr model, result slot, and decorations
+  "result_panel": {
+    "type": "stack_panel",
+    "layer": 2,
+    "orientation": "horizontal",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    // Take up entire top right, lining up top with top of slider labels and left/right with inventory
+    "size": [ 162, 110 ],
+    "offset": [ -5, 18 ],
+    "controls": [
+      { "bohr_model@elemconstruct.bohr_model": {} },
+      { "output@elemconstruct.output_panel": {} }
+    ]
+  },
+
+  "inventory_panel": {
+    "type": "panel",
+    "layer": 2,
+    "controls": [
+      {
+        "inventory@common.inventory_panel": {
+          "size": [ 162, 54 ],
+          "offset": [ -5, 0 ],
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right"
+        }
+      },
+      {
+        "hotbar@common.hotbar_grid_template": {
+          "anchor_from": "bottom_right",
+          "anchor_to": "bottom_right",
+          "offset": [ -5, -5 ]
+        }
+      }
+    ]
+  },
+
+  "content": {
+    "type": "panel",
+    "controls": [
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "size": [ 250, 220 ],
+          "controls": [
+            { "common_panel@common.common_panel": {} },
+            { "title_label@elemconstruct.title_label": {} },
+            { "particle_panel@elemconstruct.particle_panel": {} },
+            { "result_panel@elemconstruct.result_panel": {} },
+            { "inventory@elemconstruct.inventory_panel": {} },
+            { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} },
+            { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
+            { "hold_icon@common.inventory_take_progress_icon_button": {} }
+          ]
+        }
+      },
+      { "container_gamepad_helpers@common.container_gamepad_helpers": {} } // Gamepad tool tips
+    ]
+  },
+
+  "element_constructor@common.inventory_screen_common": {
+    "$close_on_player_hurt|default": false,
+    "close_on_player_hurt": "$close_on_player_hurt",
+    "$screen_bg_content": "common.screen_background",
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$screen_content": "elemconstruct.content"
+      },
+      {
+        "requires": "$pocket_screen",
+        "$screen_content": "elemconstruct_pocket.content"
+      }
+    ]
+  }
+}

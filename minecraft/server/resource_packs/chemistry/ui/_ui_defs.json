@@ -1,0 +1,14 @@
+{
+  // Alphabetical order please :)
+  "ui_defs": [
+    "ui/chemistry_common_pocket.json",
+    "ui/compound_creator_screen.json",
+    "ui/compound_creator_screen_pocket.json",
+    "ui/element_constructor_screen.json",
+    "ui/element_constructor_screen_pocket.json",
+    "ui/lab_table_screen.json",
+    "ui/lab_table_screen_pocket.json",
+    "ui/material_reducer_screen.json",
+    "ui/material_reducer_screen_pocket.json"
+  ]
+}

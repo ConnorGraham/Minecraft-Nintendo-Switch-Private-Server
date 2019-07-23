@@ -1,0 +1,3 @@
+* First public Bedrock Dedicated Server (BDS) release!
+	- Make sure to check the how to document that comes with this release
+	- File bugs at https://bugs.mojang.com/projects/BDS/issues

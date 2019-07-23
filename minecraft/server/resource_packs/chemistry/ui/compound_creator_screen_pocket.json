@@ -1,0 +1,96 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "compcreate_pocket",
+
+  "title_label@edu_common.dark_label": {
+    "layer": 2,
+    "text": "compoundcreator.title",
+    "size": [ "100%", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text_alignment": "center",
+    "offset": [ 0, 8 ]
+  },
+
+  "output_slot@chem_common_pocket.pocket_ui_container_item": {
+    "$item_collection_name": "compcreate_output",
+    "offset": [ "0%", "30%" ]
+  },
+
+  "input_slot@chem_common_pocket.pocket_ui_container_item": {
+    "$item_collection_name": "compcreate_input",
+    "$button_ref": "compcreate_pocket.one_touch_button"
+  },
+
+  "one_touch_button@chem_common_pocket.one_touch_button": {
+    "$take_all_place_all": "button.comp_create_take_all_place_all",
+    "$coalesce_stack": "button.comp_create_coalesce_stack"
+  },
+
+  "input_grid": {
+    "type": "grid",
+    "size": [ "100%c", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 4,
+    "offset": [ 0, "-10% + 2px" ],
+    "grid_dimensions": [ 3, 3 ],
+    "grid_item_template": "compcreate_pocket.input_slot",
+    "collection_name": "compcreate_input"
+  },
+
+  "dark_background@common.dialog_background_opaque": {
+    "color": "$dark_panel_color"
+  },
+
+  "arrow": {
+    "type": "image",
+    "texture": "textures/ui/arrow_down",
+    "size": [ 15, 22 ],
+    "offset": [ 0, "16.5%" ],
+    "layer": 3
+  },
+
+  // This is the beaker image
+  "input_background": {
+    "type": "image",
+    "texture": "textures/ui/compound_background",
+    "size": [ 111, 86 ],
+    "offset": [ 0, "-10%" ],
+    "layer": 3
+  },
+
+  // right panel contains compound creator specific functional elements //
+
+  "right_panel@common.empty_panel": {
+    "size": [ "49.5%", "100%" ],
+    "layer": 2,
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      { "title_label@compcreate_pocket.title_label": {} },
+      { "dialog_background_opaque@common.dialog_background_opaque": {} },
+      { "input@compcreate_pocket.input_grid": {} },
+      { "output@compcreate_pocket.output_slot": {} },
+      {
+        "output_label@compcreate.output_label": {
+          "layer": 100,
+          "offset": [ 0, 0 ], // Don't need the offset that the desktop version does.
+          "$text_alignment": "center",
+          "anchor_from": "bottom_middle",
+          "anchor_to": "bottom_middle"
+        }
+      },
+      { "arrow@compcreate_pocket.arrow": {} },
+      { "background@compcreate_pocket.input_background": {} }
+    ]
+  },
+
+  "content@chem_common_pocket.screen_contents": {
+    "$right_panel": "right_panel@compcreate_pocket.right_panel"
+  }
+}

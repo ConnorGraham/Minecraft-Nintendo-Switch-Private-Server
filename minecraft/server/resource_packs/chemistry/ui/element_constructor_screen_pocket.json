@@ -1,0 +1,294 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "elemconstruct_pocket",
+
+  "title_label@edu_common.dark_label": {
+    "layer": 2,
+    "text": "elementconstructor.title",
+    "size": [ "100%", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text_alignment": "center",
+    "offset": [ 0, 8 ]
+  },
+
+  "particle_label@common.empty_panel": {
+    "size": [ 18, "100%c" ],
+    "offset": [ 15, 5 ],
+    "controls": [
+      {
+        "label@edu_common.dark_label": {
+          "text": "$particle_label"
+        }
+      }
+    ]
+  },
+
+  "slider_progress_hover@elemconstruct.slider_progress": {},
+
+  "slider_bar_default@common.slider_bar_default": {
+    // Extend by knob size so knob is always contained in track even at value extremes
+    "size": [ "100% + 10px", "100% + 10px" ],
+    "$background_control": "elemconstruct.slider_background",
+    "$progress_control": "elemconstruct.slider_progress"
+  },
+
+  "slider_bar_hover@common.slider_bar_hover": {
+    // Extend by knob size so knob is always contained in track even at value extremes
+    "size": [ "100% + 10px", "100% + 10px" ],
+    "$background_control": "elemconstruct.slider_background_hover",
+    "$progress_control": "elemconstruct_pocket.slider_progress_hover",
+    "visible": false
+  },
+
+  "particle_slider@common.empty_panel": {
+    "size": [ "100%c", "100%c" ],
+    "offset": [ 4.5, 10 ],
+    "controls": [
+      {
+        "slider@common.slider": {
+          "size": [ 23, 4 ],
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "$slider_tts_header": "$particle_label",
+          "$slider_tts_text_value": "$particle_count_bind_name",
+
+          // Override base controls so I can make the track contain the knob, even at min and max values
+          "controls": [
+            {
+              "slider_box@common.slider_box": {
+                "$slider_box_layout": "$slider_box_layout",
+                "$slider_box_size": [ 10, 24 ],
+                "$slider_track_button": "$slider_name",
+                "$slider_box_hover_layout": "elemconstruct.chemistry_slider_button_hover_layout"
+              }
+            },
+            { "slider_bar_default@elemconstruct_pocket.slider_bar_default": {} },
+            { "slider_bar_hover@elemconstruct_pocket.slider_bar_hover": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "particle_slider_plus@common_buttons.light_text_button": {
+    "size": [ 24, 24 ],
+    "offset": [ 9, 0 ],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "$pressed_button_name": "$plus_button_name",
+    "$button_text": "+"
+  },
+
+  "particle_slider_minus@common_buttons.light_text_button": {
+    "size": [ 24, 24 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "$pressed_button_name": "$minus_button_name",
+    "$button_text": "-"
+  },
+
+  "particle": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": [ "100%c", 30 ],
+    // This stack panel is sort of ugly with offsets, but they're needed because we're shuffling around
+    "controls": [
+      {
+        "minus@elemconstruct_pocket.particle_slider_minus": {}
+      },
+      {
+        "slider@common.empty_panel": {
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            { "slider@elemconstruct_pocket.particle_slider": {} }
+          ]
+        }
+      },
+      {
+        "plus@common.empty_panel": {
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            { "plus@elemconstruct_pocket.particle_slider_plus": {} }
+          ]
+        }
+      },
+      {
+        "label@common.empty_panel": {
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            { "label@elemconstruct_pocket.particle_label": {} }
+          ]
+        }
+      },
+      {
+        "count@common.empty_panel": {
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "count@elemconstruct.particle_count": {
+                // Changing only these properties, so using the non-pocket element.
+                "offset": [ 13, 0 ],
+                "size": [ 24, 24 ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "particle_panel": {
+    "type": "stack_panel",
+    "orientation": "vertical",
+    "size": [ 130, "30%" ],
+    "offset": [ 2, 45 ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 2,
+    "controls": [
+      {
+        "protons@elemconstruct_pocket.particle": {
+          "$particle_label": "p",
+          "$particle_count_bind_name": "#proton_label_count",
+          "$plus_button_name": "button.proton_plus",
+          "$minus_button_name": "button.proton_minus",
+          "$slider_value_binding_name": "#proton_slider_count",
+          "$slider_name": "proton_slider",
+          "$slider_progress_color": "$proton_color",
+          "$text_box_name": "proton_text_edit"
+        }
+      },
+      {
+        "electrons@elemconstruct_pocket.particle": {
+          "$particle_label": "e",
+          "$particle_count_bind_name": "#electron_label_count",
+          "$plus_button_name": "button.electron_plus",
+          "$minus_button_name": "button.electron_minus",
+          "$slider_value_binding_name": "#electron_slider_count",
+          "$slider_name": "electron_slider",
+          "$slider_progress_color": "$electron_color",
+          "$text_box_name": "electron_text_edit"
+        }
+      },
+      {
+        "neutrons@elemconstruct_pocket.particle": {
+          "$particle_label": "n",
+          "$particle_count_bind_name": "#neutron_label_count",
+          "$plus_button_name": "button.neutron_plus",
+          "$minus_button_name": "button.neutron_minus",
+          "$slider_value_binding_name": "#neutron_slider_count",
+          "$slider_name": "neutron_slider",
+          "$slider_progress_color": "$neutron_color",
+          "$text_box_name": "neutron_text_edit"
+        }
+      }
+    ]
+  },
+
+  "output_panel@common.empty_panel": {
+    "size": [ "100%", "100%" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "element_icon": {
+          "type": "image",
+          "size": [ 50, 50 ],
+          "offset": [ 7, -10 ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "texture": "textures/ui/microscope"
+        }
+      },
+      {
+        "arrow_to_output": {
+          "type": "image",
+          "size": [ 24, 4 ],
+          "offset": [ 5, -10 ],
+          "layer": 4,
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "texture": "textures/ui/dialog_indent_horiz"
+        }
+      },
+      {
+        "output_slot@common.empty_panel": {
+          "$slot_size": [ 24, 24 ],
+          "size": "$slot_size",
+          "anchor_from": "bottom_left",
+          "anchor_to": "bottom_left",
+          "offset": [ 28, 0 ],
+          "controls": [
+            {
+              "slot@common.pocket_ui_container_item": {
+                "$item_collection_name": "elemconstruct_output",
+                "size": "$slot_size",
+                "$cell_image_size": "$slot_size",
+                "$item_renderer_size": [ 20, 20 ],
+                "layer": 2
+              }
+            },
+            {
+              "placeholder_icon": {
+                "type": "image",
+                "size": [ 16, 16 ],
+                "layer": 4,
+                "texture": "textures/ui/placeholder_element"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // Top right portion of the screen with Bohr model, result slot, and decorations
+  "result_panel": {
+    "type": "stack_panel",
+    "layer": 2,
+    "orientation": "horizontal",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    // Take up entire top right, lining up top with top of slider labels and left/right with inventory
+    "size": [ 130, 90 ],
+    "offset": [ -4, 23 ],
+    "controls": [
+      {
+        "bohr@common.empty_panel": {
+          "size": [ "100%c", "100%c" ],
+          "controls": [
+            {
+              "bohr_model@elemconstruct.bohr_model": {
+                "size": [ 80, 80 ],
+                "offset": [ 6, 10 ]
+              }
+            }
+          ]
+        }
+      },
+      { "output@elemconstruct_pocket.output_panel": {} }
+    ]
+  },
+
+  "right_panel@common.empty_panel": {
+    "size": [ "49.5%", "100%" ],
+    "layer": 2,
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      { "dialog_background_opaque@common.dialog_background_opaque": {} },
+      { "title_label@elemconstruct_pocket.title_label": {} },
+      { "particle_panel@elemconstruct_pocket.particle_panel": {} },
+      { "result_panel@elemconstruct_pocket.result_panel": {} }
+    ]
+  },
+
+  "content@chem_common_pocket.screen_contents": {
+    "$right_panel": "right_panel@elemconstruct_pocket.right_panel"
+  }
+}

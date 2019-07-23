@@ -1,0 +1,374 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "chem_common_pocket",
+
+  "gamepad_slash_image": {
+    "type": "image",
+    "texture": "textures/ui/button_slash",
+    "size": [ 7, 26 ],
+    "layer": 100,
+    "bindings": [
+      {
+        "binding_name": "#gamepad_helper_visible",
+        "binding_name_override": "#visible",
+        "binding_condition": "always"
+      }
+    ]
+  },
+
+  "gamepad_helper_down@common.gamepad_helper_a": {
+    "$icon_description_bind": "#button_x_description_override"
+  },
+
+  "gamepad_helper_left@common.gamepad_helper_x": {
+    "$icon_description_bind": "#button_a_description"
+  },
+
+  "container_gamepad_helpers@common.gamepad_helpers": {
+    "$a_b_stack_panel_orientation|default": "horizontal",
+    "$x_y_stack_panel_orientation|default": "horizontal",
+    "$a_b_stack_panel_size|default": [ "100%c", "100%" ],
+    "$x_y_stack_panel_size|default": [ "100%c", "100%" ],
+    "controls": [
+      {
+        "buffer_panel_left": {
+          "type": "panel",
+          "size": [ 10, 0 ]
+        }
+      },
+      {
+        "left_buttons": {
+          "type": "stack_panel",
+          "size": "$a_b_stack_panel_size",
+          "orientation": "$a_b_stack_panel_orientation",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "controls": [
+            { // Size and Offset modifications are so everything is drawn more compactly.
+              "gamepad_helper_a@chem_common_pocket.gamepad_helper_down": {
+                "size": [ 10, 26 ]
+              }
+            },
+            {
+              "buffer_panel2": {
+                "type": "panel",
+                "size": [ 9, 0 ]
+              }
+            },
+            {
+              "slash@chem_common_pocket.gamepad_slash_image": {
+                "size": [ 8, 26 ]
+              }
+            },
+            {
+              "x_wrapper": {
+                "type": "panel",
+                "size": [ "100%c", "100%c" ],
+                "controls": [
+                  {
+                    "gamepad_helper_x@chem_common_pocket.gamepad_helper_left": {
+                      "offset": [ -7, 0 ] // Scooting this element closer to the slash to condense the tooltips.
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "fill_panel": {
+          "type": "panel",
+          "size": [ "fill", 0 ]
+        }
+      },
+      {
+        "right_buttons": {
+          "type": "stack_panel",
+          "size": "$x_y_stack_panel_size",
+          "orientation": "$x_y_stack_panel_orientation",
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "controls": [
+            { // Spacing panels to get these to line up correctly on pocket screens
+              "spacing_one": {
+                "type": "panel",
+                "size": [ 5, 0 ]
+              }
+            },
+            { "gamepad_helper_b@common.gamepad_helper_b": {} },
+            {
+              "spacing_two": {
+                "type": "panel",
+                "size": [ 2, 0 ]
+              }
+            },
+            { "gamepad_helper_y@common.gamepad_helper_y": {} }
+          ]
+        }
+      },
+      {
+        "buffer_panel_right": {
+          "type": "panel",
+          "size": [ 10, 0 ]
+        }
+      }
+    ]
+  },
+
+  "one_touch_button@common.container_slot_button_prototype": {
+    "$take_all_place_all|default": "button.take_all_place_all", // override for tapping index slots
+    "$coalesce_stack|default": "button.coalesce_stack", // override for double-tapping index slots
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.container_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.container_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "$coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "to_button_id": "button.shape_drawing",
+        "mapping_type": "pressed"
+      },
+      {
+        "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+
+  "hotbar": {
+    "type": "panel",
+    "anchor_to": "top_middle",
+    "anchor_from": "bottom_middle",
+    "layer": 10,
+    "size": [ "100%c", "100%c" ],
+    "controls": [
+      {
+        "dialog_background_opaque@common.dialog_background_opaque": {
+          "size": [ "100%c + 6px", "100%c + 6px" ],
+          "controls": [
+            {
+              "hotbar_grid_template@common.hotbar_grid_template": {
+                "offset": [ 0, -3 ],
+                "size": [ 259, 28 ],
+                "grid_item_template": "common.pocket_ui_container_item",
+                "$item_collection_name": "hotbar_items"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "pocket_ui_container_item@common.pocket_ui_container_item": {
+    "size": [ 24, 24 ],
+    "$cell_image_size": [ 24, 24 ],
+    "$item_renderer_panel_size": [ 20, 20 ],
+    "$item_renderer_size": [ 20, 20 ]
+  },
+
+  "inventory_grid": {
+    "type": "grid",
+    "grid_rescaling_type": "horizontal",
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "size": [ "100% - 16px", "default" ],
+    "offset": [ 8, 2 ],
+    "maximum_grid_items": 27,
+    "collection_name": "inventory_items",
+    "grid_item_template": "chem_common_pocket.pocket_ui_container_item",
+    "$item_collection_name": "inventory_items"
+  },
+
+  "inventory_content": {
+    "type": "panel",
+    "size": [ "100% - 4px", "95%" ],
+    "offset": [ 4, 0 ],
+    "anchor_to": "center",
+    "anchor_from": "center",
+    "controls": [
+      {
+        "scrolling_panel@common.scrolling_panel": {
+          "layer": 1,
+          "offset": [ 0, 19 ],
+          "$scrolling_pane_size": [ "100% - 8px", "100% - 21px" ],
+          "$scrolling_content": "chem_common_pocket.inventory_grid",
+          "$scroll_box_mouse_image_control": "common-classic.button_state_default",
+          "$scroll_size": [ "8px", "100%" ]
+        }
+      }
+    ]
+  },
+
+  "inventory_label@edu_common.dark_label": {
+    "layer": 2,
+    "text": "container.inventory",
+    "size": [ "100%", "default" ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "text_alignment": "right",
+    "offset": [ -8, 8 ]
+  },
+
+  // left panel contains inventory slots //
+
+  "left_panel": {
+    "type": "panel",
+    "controls": [
+      {
+        "inventory_half_screen": {
+          "type": "panel",
+          "size": [ "49.5%", "100%" ],
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "controls": [
+            { "dialog_background_opaque@common.dialog_background_opaque": {} }, // Not common_panel because we don't want the 'x' button
+            { "inventory_label@chem_common_pocket.inventory_label": {} },
+            { "inventory_content@chem_common_pocket.inventory_content": {} }
+          ]
+        }
+      }
+    ]
+  },
+
+  "selected_item_details@common.selected_item_details": {
+    "offset": [ 0, 0 ] // default offset is [ 0, -16] for some reason. We don't want this.
+  },
+
+  // The exit button, but can easily be expanded as is done in inventory_screen_pocket
+  "right_tab_navigation_panel_pocket": {
+    "type": "panel",
+    "size": [ 31, "100%" ],
+    "anchor_from": "top_right",
+    "anchor_to": "top_left",
+    "controls": [
+      {
+        "content": {
+          "type": "stack_panel",
+          "orientation": "vertical",
+          "size": [ "100% + 4px", "100%" ],
+          "anchor_from": "top_right",
+          "anchor_to": "top_right",
+          "controls": [
+            {
+              "close": {
+                "type": "image",
+                "texture": "textures/ui/TabRightBackTopMost",
+                "size": [ "100%", 33 ],
+
+                "controls": [
+                  {
+                    "close_button@common.light_close_button": {
+                      "anchor_from": "center",
+                      "anchor_to": "center",
+                      "offset": [ 0, 0 ]
+                    }
+                  }
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#close_button_visible",
+                    "binding_name_override": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "fill": {
+                "type": "panel",
+                "size": [ "100%", "fill" ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+
+  //this is the entire screen, with a variable to substitute different right-halves. Every other aspect should be consistent between chemistry screens.
+  "screen_contents@common.root_panel": {
+    "layer": 2,
+    "size": [ "100% - 66px", "100% - 34px" ],
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "$right_panel|default": "panel@common.empty_panel", // This should be overriden when a chem_common_pocket.screen_contents is instantiated, but if it's not, nothing will crash.
+    "controls": [
+      { "$right_panel": {} }, // the right side of each chemistry screen is table dependent, this will be assigned on a screen-by-screen basis.
+      { "left_panel@chem_common_pocket.left_panel": {} },
+      {
+        "flying_item_renderer@common.flying_item_renderer": {
+          "layer": 15
+        }
+      },
+      {
+        "selected_item_details_factory@common.selected_item_details_factory": {
+          "control_name": "@chem_common_pocket.selected_item_details"
+        }
+      },
+      { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
+      { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} },
+      { "hotbar@chem_common_pocket.hotbar": {} },
+      { "exit_button@chem_common_pocket.right_tab_navigation_panel_pocket": {} },
+      { "container_gamepad_helpers@chem_common_pocket.container_gamepad_helpers": {} }, // Gamepad tool tips
+      {
+        "binding@common.common_panel": { // This is for the gap between the left and right panel. Referred to as "binding" by the designer.
+          "$dialog_background": "compcreate_pocket.dark_background",
+          "size": [ "100%", "95%" ],
+          "$show_close_button": false,
+          "layer": -1
+        }
+      }
+    ]
+  }
+}

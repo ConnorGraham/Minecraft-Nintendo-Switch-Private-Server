@@ -1,0 +1,198 @@
+/********************************************************
++*   (c) Mojang. All rights reserved                       *
++*   (c) Microsoft. All rights reserved.                   *
++*********************************************************/
+
+{
+  "namespace": "compcreate",
+
+  ///// Shared with Pocket Screen /////
+
+  // Instead of using the subscript character as is, which would use the small font,
+  // we make them a regular number, but change the font size down and offset it
+  "output_char@common.empty_panel": {
+    "size": [ "100%c", "100%c" ],
+    "controls": [
+      {
+        "standard_char@edu_common.dark_label": {
+          "text": "#text",
+          "localize": false,
+          "bindings": [
+            {
+              "binding_name": "#output_char",
+              "binding_name_override": "#text",
+              "binding_type": "collection",
+              "binding_collection_name": "output_char_collection"
+            },
+            {
+              "binding_name": "(not #is_subscript)",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "output_char_collection"
+            }
+          ]
+        }
+      },
+      {
+        "subscript_char@edu_common.dark_label": {
+          "text": "#text",
+          "font_size": "small",
+          "offset": [ 0, 4 ],
+          "localize": false,
+          "bindings": [
+            {
+              "binding_name": "#output_char",
+              "binding_name_override": "#text",
+              "binding_type": "collection",
+              "binding_collection_name": "output_char_collection"
+            },
+            {
+              "binding_name": "#is_subscript",
+              "binding_name_override": "#visible",
+              "binding_type": "collection",
+              "binding_collection_name": "output_char_collection"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  ///// Differs from Pocket Screen /////
+
+  "title_label@edu_common.dark_label": {
+    "layer": 2,
+    "text": "compoundcreator.title",
+    "size": [ "100%", "default" ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "text_alignment": "center",
+    "offset": [ 0, 4 ]
+  },
+
+  "output_slot@common.container_item": {
+    "$item_collection_name": "compcreate_output",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [ -25, 0 ]
+  },
+
+  "input_slot@common.container_item": {
+    "$item_collection_name": "compcreate_input"
+  },
+
+  "input_grid": {
+    "type": "grid",
+    "size": [ "100%c", "100%c" ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "offset": [ -12, 0 ],
+    "grid_dimensions": [ 3, 3 ],
+    "grid_item_template": "compcreate.input_slot",
+    "collection_name": "compcreate_input"
+  },
+
+  "io_connector": {
+    "type": "image",
+    "texture": "textures/ui/dialog_indent_horiz",
+    "size": [ 26.5, 6 ],
+    "offset": [ 19.5, 0 ],
+    "layer": 3,
+    // Anchor left side of this to right side of background box
+    "anchor_from": "center",
+    "anchor_to": "left_middle"
+  },
+
+  "input_background": {
+    "type": "image",
+    "texture": "textures/ui/compound_background",
+    "size": [ 84, 68 ],
+    "offset": [ 22.5, -2 ],
+    // Anchor right side of this to right side of input grid
+    "anchor_from": "center",
+    "anchor_to": "right_middle"
+  },
+
+  // Characters are each rendered separately so we can have subscripts without the whole font looking different
+  "output_label": {
+    "type": "stack_panel",
+    "size": [ "100%c", 24 ],
+    "offset": [ -30, 0 ],
+    "anchor_from": "bottom_right",
+    "anchor_to": "bottom_middle",
+    "orientation": "horizontal",
+    "factory": {
+      "name": "char_factory",
+      "control_name": "compcreate.output_char"
+    },
+    "collection_name": "output_char_collection",
+    "bindings": [
+      {
+        "binding_name": "#output_char_count",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+
+  "top_half@common.empty_panel": {
+    // Offset so it starts under the title label and within the frame, and goes down to the inventory
+    "offset": [ 4, 16 ],
+    "size": [ "100% - 8px", 70 ],
+    "layer": 2,
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "controls": [
+      { "input@compcreate.input_grid": {} },
+      { "output@compcreate.output_slot": {} },
+      { "output_label@compcreate.output_label": {} },
+      { "io@compcreate.io_connector": {} },
+      { "background@compcreate.input_background": {} }
+    ]
+  },
+
+  "content": {
+    "type": "panel",
+    "controls": [
+      {
+        "root_panel@common.root_panel": {
+          "layer": 1,
+          "size": [ 184, 166 ],
+          "controls": [
+            { "common_panel@common.common_panel": {} },
+            { "title_label@compcreate.title_label": {} },
+            { "top_half@compcreate.top_half": {} },
+            {
+              "inventory": {
+                "type": "panel",
+                "layer": 3,
+                "controls": [
+                  { "inventory_panel_bottom_half@common.inventory_panel_bottom_half": {} },
+                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
+                ]
+              }
+            },
+            { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} }
+          ]
+        }
+      },
+      { "container_gamepad_helpers@common.container_gamepad_helpers": {} } // Gamepad tool tips
+    ]
+  },
+
+  "compound_creator@common.inventory_screen_common": {
+    "$close_on_player_hurt|default": false,
+    "close_on_player_hurt": "$close_on_player_hurt",
+    "$screen_bg_content": "common.screen_background",
+    "variables": [
+      {
+        "requires": "$desktop_screen",
+        "$screen_content": "compcreate.content"
+      },
+      {
+        "requires": "$pocket_screen",
+        "$screen_content": "compcreate_pocket.content"
+      }
+    ]
+  }
+}

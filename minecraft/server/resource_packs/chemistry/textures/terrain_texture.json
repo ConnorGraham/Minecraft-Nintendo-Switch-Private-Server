@@ -1,0 +1,491 @@
+{
+  "resource_pack_name": "chemistry",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "element_label_0": {
+      "textures": [
+        "textures/blocks/element_000_unknown"
+      ]
+    },
+    "element_label_1": {
+      "textures": "textures/blocks/element_001_h"
+    },
+    "element_label_2": {
+      "textures": "textures/blocks/element_002_he"
+    },
+    "element_label_3": {
+      "textures": "textures/blocks/element_003_li"
+    },
+    "element_label_4": {
+      "textures": "textures/blocks/element_004_be"
+    },
+    "element_label_5": {
+      "textures": "textures/blocks/element_005_b"
+    },
+    "element_label_6": {
+      "textures": "textures/blocks/element_006_c"
+    },
+    "element_label_7": {
+      "textures": "textures/blocks/element_007_n"
+    },
+    "element_label_8": {
+      "textures": "textures/blocks/element_008_o"
+    },
+    "element_label_9": {
+      "textures": "textures/blocks/element_009_f"
+    },
+    "element_label_10": {
+      "textures": "textures/blocks/element_010_ne"
+    },
+    "element_label_11": {
+      "textures": "textures/blocks/element_011_na"
+    },
+    "element_label_12": {
+      "textures": "textures/blocks/element_012_mg"
+    },
+    "element_label_13": {
+      "textures": "textures/blocks/element_013_al"
+    },
+    "element_label_14": {
+      "textures": "textures/blocks/element_014_si"
+    },
+    "element_label_15": {
+      "textures": "textures/blocks/element_015_p"
+    },
+    "element_label_16": {
+      "textures": "textures/blocks/element_016_s"
+    },
+    "element_label_17": {
+      "textures": "textures/blocks/element_017_cl"
+    },
+    "element_label_18": {
+      "textures": "textures/blocks/element_018_ar"
+    },
+    "element_label_19": {
+      "textures": "textures/blocks/element_019_k"
+    },
+    "element_label_20": {
+      "textures": "textures/blocks/element_020_ca"
+    },
+    "element_label_21": {
+      "textures": "textures/blocks/element_021_sc"
+    },
+    "element_label_22": {
+      "textures": "textures/blocks/element_022_ti"
+    },
+    "element_label_23": {
+      "textures": "textures/blocks/element_023_v"
+    },
+    "element_label_24": {
+      "textures": "textures/blocks/element_024_cr"
+    },
+    "element_label_25": {
+      "textures": "textures/blocks/element_025_mn"
+    },
+    "element_label_26": {
+      "textures": "textures/blocks/element_026_fe"
+    },
+    "element_label_27": {
+      "textures": "textures/blocks/element_027_co"
+    },
+    "element_label_28": {
+      "textures": "textures/blocks/element_028_ni"
+    },
+    "element_label_29": {
+      "textures": "textures/blocks/element_029_cu"
+    },
+    "element_label_30": {
+      "textures": "textures/blocks/element_030_zn"
+    },
+    "element_label_31": {
+      "textures": "textures/blocks/element_031_ga"
+    },
+    "element_label_32": {
+      "textures": "textures/blocks/element_032_ge"
+    },
+    "element_label_33": {
+      "textures": "textures/blocks/element_033_as"
+    },
+    "element_label_34": {
+      "textures": "textures/blocks/element_034_se"
+    },
+    "element_label_35": {
+      "textures": "textures/blocks/element_035_br"
+    },
+    "element_label_36": {
+      "textures": "textures/blocks/element_036_kr"
+    },
+    "element_label_37": {
+      "textures": "textures/blocks/element_037_rb"
+    },
+    "element_label_38": {
+      "textures": "textures/blocks/element_038_sr"
+    },
+    "element_label_39": {
+      "textures": "textures/blocks/element_039_y"
+    },
+    "element_label_40": {
+      "textures": "textures/blocks/element_040_zr"
+    },
+    "element_label_41": {
+      "textures": "textures/blocks/element_041_nb"
+    },
+    "element_label_42": {
+      "textures": "textures/blocks/element_042_mo"
+    },
+    "element_label_43": {
+      "textures": "textures/blocks/element_043_tc"
+    },
+    "element_label_44": {
+      "textures": "textures/blocks/element_044_ru"
+    },
+    "element_label_45": {
+      "textures": "textures/blocks/element_045_rh"
+    },
+    "element_label_46": {
+      "textures": "textures/blocks/element_046_pd"
+    },
+    "element_label_47": {
+      "textures": "textures/blocks/element_047_ag"
+    },
+    "element_label_48": {
+      "textures": "textures/blocks/element_048_cd"
+    },
+    "element_label_49": {
+      "textures": "textures/blocks/element_049_in"
+    },
+    "element_label_50": {
+      "textures": "textures/blocks/element_050_sn"
+    },
+    "element_label_51": {
+      "textures": "textures/blocks/element_051_sb"
+    },
+    "element_label_52": {
+      "textures": "textures/blocks/element_052_te"
+    },
+    "element_label_53": {
+      "textures": "textures/blocks/element_053_i"
+    },
+    "element_label_54": {
+      "textures": "textures/blocks/element_054_xe"
+    },
+    "element_label_55": {
+      "textures": "textures/blocks/element_055_cs"
+    },
+    "element_label_56": {
+      "textures": "textures/blocks/element_056_ba"
+    },
+    "element_label_57": {
+      "textures": "textures/blocks/element_057_la"
+    },
+    "element_label_58": {
+      "textures": "textures/blocks/element_058_ce"
+    },
+    "element_label_59": {
+      "textures": "textures/blocks/element_059_pr"
+    },
+    "element_label_60": {
+      "textures": "textures/blocks/element_060_nd"
+    },
+    "element_label_61": {
+      "textures": "textures/blocks/element_061_pm"
+    },
+    "element_label_62": {
+      "textures": "textures/blocks/element_062_sm"
+    },
+    "element_label_63": {
+      "textures": "textures/blocks/element_063_eu"
+    },
+    "element_label_64": {
+      "textures": "textures/blocks/element_064_gd"
+    },
+    "element_label_65": {
+      "textures": "textures/blocks/element_065_tb"
+    },
+    "element_label_66": {
+      "textures": "textures/blocks/element_066_dy"
+    },
+    "element_label_67": {
+      "textures": "textures/blocks/element_067_ho"
+    },
+    "element_label_68": {
+      "textures": "textures/blocks/element_068_er"
+    },
+    "element_label_69": {
+      "textures": "textures/blocks/element_069_tm"
+    },
+    "element_label_70": {
+      "textures": "textures/blocks/element_070_yb"
+    },
+    "element_label_71": {
+      "textures": "textures/blocks/element_071_lu"
+    },
+    "element_label_72": {
+      "textures": "textures/blocks/element_072_hf"
+    },
+    "element_label_73": {
+      "textures": "textures/blocks/element_073_ta"
+    },
+    "element_label_74": {
+      "textures": "textures/blocks/element_074_w"
+    },
+    "element_label_75": {
+      "textures": "textures/blocks/element_075_re"
+    },
+    "element_label_76": {
+      "textures": "textures/blocks/element_076_os"
+    },
+    "element_label_77": {
+      "textures": "textures/blocks/element_077_ir"
+    },
+    "element_label_78": {
+      "textures": "textures/blocks/element_078_pt"
+    },
+    "element_label_79": {
+      "textures": "textures/blocks/element_079_au"
+    },
+    "element_label_80": {
+      "textures": "textures/blocks/element_080_hg"
+    },
+    "element_label_81": {
+      "textures": "textures/blocks/element_081_tl"
+    },
+    "element_label_82": {
+      "textures": "textures/blocks/element_082_pb"
+    },
+    "element_label_83": {
+      "textures": "textures/blocks/element_083_bi"
+    },
+    "element_label_84": {
+      "textures": "textures/blocks/element_084_po"
+    },
+    "element_label_85": {
+      "textures": "textures/blocks/element_085_at"
+    },
+    "element_label_86": {
+      "textures": "textures/blocks/element_086_rn"
+    },
+    "element_label_87": {
+      "textures": "textures/blocks/element_087_fr"
+    },
+    "element_label_88": {
+      "textures": "textures/blocks/element_088_ra"
+    },
+    "element_label_89": {
+      "textures": "textures/blocks/element_089_ac"
+    },
+    "element_label_90": {
+      "textures": "textures/blocks/element_090_th"
+    },
+    "element_label_91": {
+      "textures": "textures/blocks/element_091_pa"
+    },
+    "element_label_92": {
+      "textures": "textures/blocks/element_092_u"
+    },
+    "element_label_93": {
+      "textures": "textures/blocks/element_093_np"
+    },
+    "element_label_94": {
+      "textures": "textures/blocks/element_094_pu"
+    },
+    "element_label_95": {
+      "textures": "textures/blocks/element_095_am"
+    },
+    "element_label_96": {
+      "textures": "textures/blocks/element_096_cm"
+    },
+    "element_label_97": {
+      "textures": "textures/blocks/element_097_bk"
+    },
+    "element_label_98": {
+      "textures": "textures/blocks/element_098_cf"
+    },
+    "element_label_99": {
+      "textures": "textures/blocks/element_099_es"
+    },
+    "element_label_100": {
+      "textures": "textures/blocks/element_100_fm"
+    },
+    "element_label_101": {
+      "textures": "textures/blocks/element_101_md"
+    },
+    "element_label_102": {
+      "textures": "textures/blocks/element_102_no"
+    },
+    "element_label_103": {
+      "textures": "textures/blocks/element_103_lr"
+    },
+    "element_label_104": {
+      "textures": "textures/blocks/element_104_rf"
+    },
+    "element_label_105": {
+      "textures": "textures/blocks/element_105_db"
+    },
+    "element_label_106": {
+      "textures": "textures/blocks/element_106_sg"
+    },
+    "element_label_107": {
+      "textures": "textures/blocks/element_107_bh"
+    },
+    "element_label_108": {
+      "textures": "textures/blocks/element_108_hs"
+    },
+    "element_label_109": {
+      "textures": "textures/blocks/element_109_mt"
+    },
+    "element_label_110": {
+      "textures": "textures/blocks/element_110_ds"
+    },
+    "element_label_111": {
+      "textures": "textures/blocks/element_111_rg"
+    },
+    "element_label_112": {
+      "textures": "textures/blocks/element_112_cn"
+    },
+    "element_label_113": {
+      "textures": "textures/blocks/element_113_nh"
+    },
+    "element_label_114": {
+      "textures": "textures/blocks/element_114_fl"
+    },
+    "element_label_115": {
+      "textures": "textures/blocks/element_115_mc"
+    },
+    "element_label_116": {
+      "textures": "textures/blocks/element_116_lv"
+    },
+    "element_label_117": {
+      "textures": "textures/blocks/element_117_ts"
+    },
+    "element_label_118": {
+      "textures": "textures/blocks/element_118_og"
+    },
+    "chemistry_table_top": {
+      "textures": [
+        "textures/blocks/compound_creator_top",
+        "textures/blocks/material_reducer_top",
+        "textures/blocks/element_constructor_top",
+        "textures/blocks/lab_table_top"
+      ]
+    },
+    "chemistry_table_bottom": {
+      "textures": [
+        "textures/blocks/compound_creator_inside_bottom",
+        "textures/blocks/material_reducer_bottom",
+        "textures/blocks/lab_table_bottom",
+        "textures/blocks/lab_table_bottom"
+      ]
+    },
+    "chemistry_table_south": {
+      "textures": [
+        "textures/blocks/compound_creator_inside",
+        "textures/blocks/material_reducer_front",
+        "textures/blocks/element_constructor_front",
+        "textures/blocks/lab_table_front"
+      ]
+    },
+    "chemistry_table_east": {
+      "textures": [
+        "textures/blocks/compound_creator_side_a",
+        "textures/blocks/material_reducer_side",
+        "textures/blocks/element_constructor_side_a",
+        "textures/blocks/lab_table_side_a"
+      ]
+    },
+    "chemistry_table_north": {
+      "textures": [
+        "textures/blocks/compound_creator_side_b",
+        "textures/blocks/material_reducer_side",
+        "textures/blocks/element_constructor_back",
+        "textures/blocks/lab_table_side_b"
+      ]
+    },
+    "chemistry_table_west": {
+      "textures": [
+        "textures/blocks/compound_creator_side_c",
+        "textures/blocks/material_reducer_side",
+        "textures/blocks/element_constructor_side_b",
+        "textures/blocks/lab_table_side_c"
+      ]
+    },
+    "chemical_heat": {
+      "textures": "textures/blocks/chemical_heat"
+    },
+    "underwater_torch": {
+      "textures": "textures/blocks/torch_underwater"
+    },
+    "colored_torch": {
+      "textures": [
+        "textures/blocks/torch_red",
+        "textures/blocks/torch_green",
+        "textures/blocks/torch_blue",
+        "textures/blocks/torch_purple"
+      ]
+    },
+    "tnt_top": {
+      "textures": [
+        "textures/blocks/tnt_top",
+        "textures/blocks/tnt_top_underwater"
+      ]
+    },
+    "tnt_bottom": {
+      "textures": [
+        "textures/blocks/tnt_bottom",
+        "textures/blocks/tnt_bottom_underwater"
+      ]
+    },
+    "tnt_side": {
+      "textures": [
+        "textures/blocks/tnt_side",
+        "textures/blocks/tnt_side_underwater"
+      ]
+    },
+    "hard_glass": {
+      "textures": "textures/blocks/hard_glass"
+    },
+    "hard_stained_glass": {
+      "textures": [
+        "textures/blocks/hard_glass_white",
+        "textures/blocks/hard_glass_orange",
+        "textures/blocks/hard_glass_magenta",
+        "textures/blocks/hard_glass_light_blue",
+        "textures/blocks/hard_glass_yellow",
+        "textures/blocks/hard_glass_lime",
+        "textures/blocks/hard_glass_pink",
+        "textures/blocks/hard_glass_gray",
+        "textures/blocks/hard_glass_silver",
+        "textures/blocks/hard_glass_cyan",
+        "textures/blocks/hard_glass_purple",
+        "textures/blocks/hard_glass_blue",
+        "textures/blocks/hard_glass_brown",
+        "textures/blocks/hard_glass_green",
+        "textures/blocks/hard_glass_red",
+        "textures/blocks/hard_glass_black"
+      ]
+    },
+    "glow_stick": {
+      // Glow stick uses almost all dye colors. Fill in holes with placeholders so variant id matches dye id
+      "textures": [
+        "textures/blocks/glow_stick_red", // Black unused
+        "textures/blocks/glow_stick_red",
+        "textures/blocks/glow_stick_green",
+        "textures/blocks/glow_stick_brown",
+        "textures/blocks/glow_stick_blue",
+        "textures/blocks/glow_stick_purple",
+        "textures/blocks/glow_stick_cyan",
+        "textures/blocks/glow_stick_red", // Silver/Light gray unused
+        "textures/blocks/glow_stick_gray",
+        "textures/blocks/glow_stick_pink",
+        "textures/blocks/glow_stick_lime",
+        "textures/blocks/glow_stick_yellow",
+        "textures/blocks/glow_stick_light_blue",
+        "textures/blocks/glow_stick_magenta",
+        "textures/blocks/glow_stick_orange",
+        "textures/blocks/glow_stick_white"
+      ]
+    }
+  }
+}

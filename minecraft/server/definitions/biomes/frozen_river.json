@@ -1,0 +1,25 @@
+{
+  "frozen_river": {
+    "format_version": "1.12.0",
+
+    "minecraft:climate": {
+      "downfall": 0.5,
+      "snow_accumulation": [ 0.125, 0.25 ],
+      "temperature": 0.0
+    },
+    "minecraft:overworld_height": {
+      "noise_type": "river"
+    },
+    "minecraft:overworld_surface": {
+      "floor_depth": 7,
+      "floor_material": "minecraft:gravel",
+      "foundation_material": "minecraft:stone",
+      "mid_material": "minecraft:dirt",
+      "top_material": "minecraft:grass"
+    },
+
+    "frozen": {},
+    "overworld": {},
+    "river": {}
+  }
+}
