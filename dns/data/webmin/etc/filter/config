@@ -1,0 +1,6 @@
+alias_files=/etc/aliases	/etc/postfix/aliases	/etc/mail/aliases
+forward_procmail=0
+virtualmin_spam=/etc/webmin/virtual-server/lookup-domain.pl
+reply_force=0
+warn_procmail=1
+virtualmin_config=/etc/webmin/virtual-server

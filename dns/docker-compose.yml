@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  bind:
+    restart: always
+    image: sameersbn/bind:9.11.3-20190706
+    ports:
+    - "53:53/udp"
+    - "53:53/tcp"
+    - "10000:10000/tcp"
+    volumes:
+    - ./data:/data

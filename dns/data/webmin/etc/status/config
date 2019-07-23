@@ -1,0 +1,13 @@
+sched_offset=0
+columns=2
+sysinfo=0
+pager_cmd=sms_client
+snmp_version=2
+history_purge=30
+index_status=1
+sysinfo_users=0
+subject_mode=0
+sort_mode=0
+snmp_trap=1.3.6.1.4.1.10000.1.1
+history_show=50
+output=0

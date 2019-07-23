@@ -1,0 +1,3 @@
+update_system=apt
+package_system=debian
+apt_mode=0

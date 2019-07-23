@@ -1,0 +1,22 @@
+options {
+	directory "/var/cache/bind";
+
+	recursion yes;                 # enables resursive queries
+	allow-recursion-on {any;};   # allows recursive queries from "trusted" clients
+	allow-transfer { none; };      # disable zone transfers by default
+
+	forwarders {
+					8.8.8.8;
+					8.8.4.4;
+	};
+	forward only;
+
+	dnssec-validation no;
+	dnssec-enable no;
+
+	//========================================================================
+	// If BIND logs error messages about the root key being expired,
+	// you will need to update your keys.  See https://www.isc.org/bind-keys
+	//========================================================================
+	auth-nxdomain no;    # conform to RFC1035
+};

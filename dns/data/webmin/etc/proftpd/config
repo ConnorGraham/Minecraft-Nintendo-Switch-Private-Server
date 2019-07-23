@@ -1,0 +1,9 @@
+proftpd_conf=/etc/proftpd/proftpd.conf
+ftpusers=/etc/ftpusers
+proftpd_path=/usr/sbin/proftpd
+test_manual=0
+pid_file=/var/run/proftpd.pid
+test_always=0
+start_cmd=/etc/init.d/proftpd start
+stop_cmd=/etc/init.d/proftpd stop
+test_config=1
