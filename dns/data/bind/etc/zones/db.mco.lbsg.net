@@ -12,4 +12,3 @@ $TTL	604800
 
 mco.lbsg.net.	IN	A	192.168.0.69
 mco.lbsg.net.	IN	NS	mco.lbsg.net.
-O
