@@ -1,10 +1,21 @@
 version: '3'
 services:
+  # Minecraft Server
   mc:
-    build: .
+    # https://github.com/itzg/docker-minecraft-bedrock-server
+    image: itzg/minecraft-bedrock-server
+    environment:
+      - EULA=TRUE
+      - ONLINE_MODE=false
     ports:
       - "19132:19132/udp"
       - "19133:19133/udp"
     volumes:
+    - ./server/behavior_packs/:/behavior_packs
+    - ./server/definitions/:/definitions
+    - ./server/resource_packs/:/resource_packs
+    - ./server/structures/:/structures
     - ./server/worlds/:/worlds
     - ./server/server.properties:/server.properties
+    - ./server/whitelist.json:/whitelist.json
+    - ./server/permissions.json:/permissions.json
