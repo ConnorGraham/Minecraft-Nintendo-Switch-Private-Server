@@ -9,3 +9,6 @@ down: ## stop minecraft and dns
 
 check: ## check the minecraft server is available
 	sudo nmap -sT -p 19132 localhost
+
+whatsmyip: ## whats my IP address (for mac)
+	@ipconfig getifaddr en0

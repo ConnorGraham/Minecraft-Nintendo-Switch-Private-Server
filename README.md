@@ -13,7 +13,7 @@ The basic premise is when your switch tries to connect to the Lifeboat Network, 
 
 ## Steps to run
 1. Clone this repo
-2. Edit `dns/data/bind/etc/zones/db.mco.lbsg.net` and replace 192.168.0.69 with the IP address of Minecraft server
+2. Edit `dns/data/bind/etc/zones/db.mco.lbsg.net` and replace 192.168.1.5 with the IP address of the Minecraft server
 3. start the dns and minecraft servers: `make up`
 4. tail the minecraft logs to see its all working: `docker logs -f minecraft`
 5. Lastly, in your Nintendo Switch network settings, set the primary DNS server to the private IP address of your machine running DNS
