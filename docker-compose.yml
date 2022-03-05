@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  mbs:
+    # https://hub.docker.com/r/itzg/minecraft-bedrock-server
+    image: itzg/minecraft-bedrock-server
+    container_name: minecraft
+    environment:
+      EULA: "TRUE"
+      GAMEMODE: creative
+      DIFFICULTY: normal
+      SERVER_NAME: "Dads Nas"
+      ONLINE_MODE: "true"
+    ports:
+      - 19132:19132/udp
+      - 19133:19133/udp
+      #- 19132:25132/udp
+    volumes:
+      - ./minecraft/server/worlds/:/worlds
+      - ./minecraft/server/server.properties:/server.properties
+    stdin_open: true
+    tty: true
+
+  bind:
+    container_name: dns
+    restart: always
+    image: sameersbn/bind:9.11.3-20190706
+    ports:
+    - "53:53/udp"
+    - "53:53/tcp"
+    - "10000:10000/tcp"
+    volumes:
+    - ./dns/data:/data

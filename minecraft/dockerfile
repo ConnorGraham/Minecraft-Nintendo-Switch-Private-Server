@@ -1,9 +1,0 @@
-FROM fedora:30
-
-ADD server/ /
-
-EXPOSE 19132/udp 19133/udp
-
-ENV LD_LIBRARY_PATH .
-
-CMD ["./bedrock_server"]
