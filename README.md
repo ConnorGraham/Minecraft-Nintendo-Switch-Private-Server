@@ -17,4 +17,5 @@ The basic premise is when your switch tries to connect to the Lifeboat Network, 
 3. start the dns and minecraft servers: `make up`
 4. tail the minecraft logs to see its all working: `docker logs -f minecraft`
 5. Lastly, in your Nintendo Switch network settings, set the primary DNS server to the private IP address of your machine running DNS
+   1. I found this in the Internet section. I had to set up a new manual WIFI connection, connected to my router, with dns changed: primay=the dns servers IP, secondary=8.8.8.8 (google)
 6. Open Minecraft, go to the realms tab and connect to Lifeboat Network. You should be connecting to your private server instead!
