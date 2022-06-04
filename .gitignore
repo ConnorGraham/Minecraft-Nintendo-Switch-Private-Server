@@ -1,0 +1,5 @@
+#intellij
+.idea/
+
+#OSX Finder
+**/.DS_STORE
